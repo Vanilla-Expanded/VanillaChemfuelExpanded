@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <VCHE_ExtractChemfuel>Extract 150 chemfuel</VCHE_ExtractChemfuel>
+  <VCHE_ExtractChemfuelDesc>Extract 150 chemfuel from the tank. A pawn will come to extract it.</VCHE_ExtractChemfuelDesc>
+</LanguageData>
