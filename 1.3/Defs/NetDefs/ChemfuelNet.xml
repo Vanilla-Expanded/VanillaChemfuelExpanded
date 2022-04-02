@@ -8,7 +8,9 @@
       <color>(0.68, 0.43, 0.19)</color>
       <offTexPath>Things/Item/Resource/Chemfuel</offTexPath>
     </resource>
-    <pipeDef>VCHE_ChemfuelPipe</pipeDef>
+    <pipeDefs>
+      <li>VCHE_ChemfuelPipe</li>
+    </pipeDefs>
     <designator>
       <deconstructIconPath>UI/Gizmos/ChemfuelPipes_Deconstruct</deconstructIconPath>
       <designationCategoryDef>Production</designationCategoryDef>
@@ -36,7 +38,7 @@
       <graphicClass>Graphic_Single</graphicClass>
       <linkType>Basic</linkType>
       <linkFlags>
-        <li>Custom10</li>
+        <li>Custom7</li>
       </linkFlags>
       <damageData>
         <rect>(0,0.35,1,0.3)</rect>
@@ -56,10 +58,10 @@
     <altitudeLayer>Conduits</altitudeLayer>
     <passability>Standable</passability>
     <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
-    <resourcesFractionWhenDeconstructed>0</resourcesFractionWhenDeconstructed>
     <statBases>
-      <MaxHitPoints>80</MaxHitPoints>
+      <MaxHitPoints>40</MaxHitPoints>
       <WorkToBuild>35</WorkToBuild>
+      <Flammability>1.0</Flammability>
     </statBases>
     <placingDraggableDimensions>1</placingDraggableDimensions>
     <costList>
@@ -112,14 +114,14 @@
       </damageData>
     </graphicData>
     <altitudeLayer>Building</altitudeLayer>
-    <passability>PassThroughOnly</passability>
+    <passability>Impassable</passability>
     <pathCost>50</pathCost>
     <blockWind>true</blockWind>
     <castEdgeShadows>true</castEdgeShadows>
     <fillPercent>0.40</fillPercent>
     <tickerType>Normal</tickerType>
     <statBases>
-      <MaxHitPoints>100</MaxHitPoints>
+      <MaxHitPoints>150</MaxHitPoints>
       <WorkToBuild>800</WorkToBuild>
       <Mass>20</Mass>
       <Flammability>1.0</Flammability>
