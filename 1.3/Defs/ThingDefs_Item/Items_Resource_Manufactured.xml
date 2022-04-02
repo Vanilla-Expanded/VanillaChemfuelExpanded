@@ -17,12 +17,15 @@
       <MaxHitPoints>50</MaxHitPoints>
       <MarketValue>4</MarketValue>
       <Mass>0.07</Mass>
-      <Flammability>2.5</Flammability>
+      <Flammability>2</Flammability>
       <DeteriorationRate>1.0</DeteriorationRate>
     </statBases>
     <thingCategories>
       <li>Manufactured</li>
     </thingCategories>
+    <deepCommonality>2</deepCommonality>
+    <deepCountPerPortion>35</deepCountPerPortion>
+    <deepLumpSizeRange>20~40</deepLumpSizeRange>
     <comps>
       <li Class="CompProperties_Explosive">
         <explosiveRadius>1.1</explosiveRadius>
