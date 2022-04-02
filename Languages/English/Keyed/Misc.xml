@@ -2,4 +2,9 @@
 <LanguageData>
   <VCHE_ExtractChemfuel>Extract 150 chemfuel</VCHE_ExtractChemfuel>
   <VCHE_ExtractChemfuelDesc>Extract 150 chemfuel from the tank. A pawn will come to extract it.</VCHE_ExtractChemfuelDesc>
+
+  <VCHE_ExtractDeepchem>Extract 150 deepchem</VCHE_ExtractDeepchem>
+  <VCHE_ExtractDeepchemDesc>Extract 150 deepchem from the tank. A pawn will come to extract it.</VCHE_ExtractDeepchemDesc>
+
+  <VCHE_CantRefine>Can’t refine: Tanks are full</VCHE_CantRefine>
 </LanguageData>
