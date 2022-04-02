@@ -26,6 +26,7 @@
     <deepCommonality>2</deepCommonality>
     <deepCountPerPortion>35</deepCountPerPortion>
     <deepLumpSizeRange>20~40</deepLumpSizeRange>
+    <deepCountPerCell>300</deepCountPerCell>
     <comps>
       <li Class="CompProperties_Explosive">
         <explosiveRadius>1.1</explosiveRadius>
@@ -40,5 +41,10 @@
         <wickTicks>70~150</wickTicks>
       </li>
     </comps>
+    <modExtensions>
+      <li Class="VFECore.ThingDefExtension">
+        <deepColor>(0.72, 0.29, 0.29)</deepColor>
+      </li>
+    </modExtensions>
   </ThingDef>
 </Defs>
