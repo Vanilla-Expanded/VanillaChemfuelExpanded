@@ -18,6 +18,10 @@ namespace VCHE
                     canPlace = true;
                 }
             }
+
+            if (!canPlace)
+                return new AcceptanceReport("VCHE_CantPlaceHere".Translate());
+
             return canPlace;
         }
     }
