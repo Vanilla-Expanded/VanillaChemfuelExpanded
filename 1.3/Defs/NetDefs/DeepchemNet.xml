@@ -191,7 +191,7 @@
         <pipeNet>VCHE_DeepchemNet</pipeNet>
         <bufferSize>1</bufferSize>
         <showBufferInfo>false</showBufferInfo>
-        <eachTicks>600</eachTicks>
+        <eachTicks>300</eachTicks>
         <result>
           <thing>Chemfuel</thing>
           <thingCount>3</thingCount>
@@ -206,7 +206,7 @@
       <li Class="VCHE.CompProperties_Refinery" />
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
-        <basePowerConsumption>400</basePowerConsumption>
+        <basePowerConsumption>600</basePowerConsumption>
         <shortCircuitInRain>false</shortCircuitInRain>
       </li>
     </comps>
