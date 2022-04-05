@@ -13,7 +13,7 @@
     </pipeDefs>
     <designator>
       <deconstructIconPath>UI/Gizmos/DeepchemPipes_Deconstruct</deconstructIconPath>
-      <designationCategoryDef>Production</designationCategoryDef>
+      <designationCategoryDef>VCHE_PipeNetworks</designationCategoryDef>
     </designator>
     <overlayOptions>
       <overlayColor>(0.72, 0.29, 0.29)</overlayColor>
@@ -74,7 +74,7 @@
     <neverMultiSelect>true</neverMultiSelect>
     <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-    <designationCategory>Production</designationCategory>
+    <designationCategory>VCHE_PipeNetworks</designationCategory>
     <constructEffect>ConstructMetal</constructEffect>
     <clearBuildingArea>false</clearBuildingArea>
     <researchPrerequisites>
@@ -143,7 +143,7 @@
       </li>
     </comps>
     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
-    <designationCategory>Production</designationCategory>
+    <designationCategory>VCHE_PipeNetworks</designationCategory>
     <staticSunShadowHeight>0.2</staticSunShadowHeight>
     <constructEffect>ConstructMetal</constructEffect>
     <canOverlapZones>false</canOverlapZones>
@@ -211,7 +211,7 @@
       </li>
     </comps>
     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
-    <designationCategory>Production</designationCategory>
+    <designationCategory>VCHE_PipeNetworks</designationCategory>
     <staticSunShadowHeight>0.2</staticSunShadowHeight>
     <constructEffect>ConstructMetal</constructEffect>
     <canOverlapZones>false</canOverlapZones>
@@ -236,7 +236,7 @@
     <passability>PassThroughOnly</passability>
     <pathCost>50</pathCost>
     <fillPercent>0.5</fillPercent>
-    <designationCategory>Production</designationCategory>
+    <designationCategory>VCHE_PipeNetworks</designationCategory>
     <specialDisplayRadius>2.6</specialDisplayRadius> <!-- 21 closest cells -->
     <rotatable>false</rotatable>
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
