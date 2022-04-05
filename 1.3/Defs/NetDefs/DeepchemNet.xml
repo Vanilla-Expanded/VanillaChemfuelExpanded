@@ -237,7 +237,6 @@
     <pathCost>50</pathCost>
     <fillPercent>0.5</fillPercent>
     <designationCategory>VCHE_PipeNetworks</designationCategory>
-    <specialDisplayRadius>2.6</specialDisplayRadius> <!-- 21 closest cells -->
     <rotatable>false</rotatable>
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <constructionSkillPrerequisite>4</constructionSkillPrerequisite>

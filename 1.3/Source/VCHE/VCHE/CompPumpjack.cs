@@ -37,6 +37,8 @@ namespace VCHE
         private bool cycleOver = true;
         private List<IntVec3> adjCells;
 
+        internal List<IntVec3> lumpCells;
+
         public CompProperties_Pumpjack Props => (CompProperties_Pumpjack)props;
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
@@ -44,7 +46,7 @@ namespace VCHE
             base.PostSpawnSetup(respawningAfterLoad);
             resource = parent.GetComp<CompResourceStorage>();
             powerComp = parent.GetComp<CompPowerTrader>();
-            adjCells = adjCells = GenAdj.CellsAdjacent8Way(parent).ToList();
+            adjCells = GenAdj.CellsAdjacent8Way(parent).ToList();
 
             trueCenter = parent.TrueCenter();
             if (pumpPos == Vector3.zero)
@@ -52,6 +54,38 @@ namespace VCHE
 
             bottomPos = trueCenter + new Vector3(0f, 1f, 0f);
             pumpPosMax = trueCenter + new Vector3(0f, 0f, 1.1f);
+
+            if (lumpCells == null)
+            {
+                lumpCells = new List<IntVec3>();
+                var treated = new HashSet<IntVec3>();
+                var toCheck = new Queue<IntVec3>();
+
+                var cell = parent.Position;
+                var map = parent.Map;
+
+                toCheck.Enqueue(cell);
+                treated.Add(cell);
+
+                while (toCheck.Count > 0)
+                {
+                    var temp = toCheck.Dequeue();
+                    lumpCells.Add(temp);
+
+                    var neighbours = GenAdjFast.AdjacentCellsCardinal(temp);
+                    for (int i = 0; i < neighbours.Count; i++)
+                    {
+                        var n = neighbours[i];
+                        if (!treated.Contains(n) && map.deepResourceGrid.ThingDefAt(n) is ThingDef r && r.defName == "VCHE_Deepchem")
+                        {
+                            treated.Add(n);
+                            toCheck.Enqueue(n);
+                        }
+                    }
+                }
+
+                lumpCells.SortByDescending(c => c.DistanceTo(cell));
+            }
         }
 
         public override void PostDeSpawn(Map map)
@@ -66,6 +100,8 @@ namespace VCHE
             Scribe_Values.Look(ref cycleOver, "cycleOver");
             Scribe_Values.Look(ref goingUp, "goingUp");
             Scribe_Values.Look(ref pumpPos, "pumpPos");
+
+            Scribe_Collections.Look(ref lumpCells, "lumpCells", LookMode.Value);
         }
 
         public override void CompTick()
@@ -132,7 +168,6 @@ namespace VCHE
 
                         if (cycleOver) cycleOver = false;
                     }
-
                     return;
                 }
             }
@@ -173,7 +208,24 @@ namespace VCHE
 
         private bool GetNextResource(out ThingDef resDef, out int countPresent, out IntVec3 cell)
         {
-            return DeepDrillUtility.GetNextResource(parent.Position, parent.Map, out resDef, out countPresent, out cell);
+            var c = lumpCells[0];
+            var map = parent.Map;
+
+            if (map.deepResourceGrid.ThingDefAt(c) is ThingDef r)
+            {
+                resDef = r;
+                countPresent = map.deepResourceGrid.CountAt(c);
+                cell = c;
+                return true;
+            }
+            else
+            {
+                resDef = null;
+                countPresent = 0;
+                cell = c;
+                lumpCells.RemoveAt(0);
+                return false;
+            }
         }
 
         public override string CompInspectStringExtra()
