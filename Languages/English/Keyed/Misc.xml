@@ -8,7 +8,6 @@
 
   <VCHE_CantRefine>Can’t refine: Tanks are full</VCHE_CantRefine>
   <VCHE_CantPump>Can’t pump: Tanks are full</VCHE_CantPump>
-  <VCHE_CantPumpBis>Can’t pump: No tank(s) connected</VCHE_CantPumpBis>
 
   <VCHE_CantPlaceHere>Deepchem pumpjack can only be placed on the deepchem deposit. Use ground-penetrating scanner to find the deposits.</VCHE_CantPlaceHere>
 </LanguageData>

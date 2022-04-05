@@ -279,8 +279,11 @@
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>300</basePowerConsumption>
       </li>
-      <li Class="PipeSystem.CompProperties_Resource">
+      <li Class="PipeSystem.CompProperties_ResourceStorage">
         <pipeNet>VCHE_DeepchemNet</pipeNet>
+        <storageCapacity>5</storageCapacity>
+        <drawStorageBar>false</drawStorageBar>
+        <addStorageInfo>false</addStorageInfo>
       </li>
       <li Class="VCHE.CompProperties_Pumpjack">
         <ticksPerPortion>60</ticksPerPortion>
