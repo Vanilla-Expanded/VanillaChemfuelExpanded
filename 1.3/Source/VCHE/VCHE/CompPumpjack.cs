@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Verse;
+using Verse.Sound;
 
 namespace VCHE
 {
@@ -15,6 +16,7 @@ namespace VCHE
         }
 
         public int ticksPerPortion = 60;
+        public SoundDef ambientSound;
     }
 
     [StaticConstructorOnStartup]
@@ -31,6 +33,7 @@ namespace VCHE
         private CompResourceStorage resource;
         private CompPowerTrader powerComp;
 
+        private Sustainer sustainer;
         private int nextProduceTick = -1;
         private bool noCapacity = false;
         private bool goingUp = true;
@@ -86,6 +89,11 @@ namespace VCHE
 
                 lumpCells.SortByDescending(c => c.DistanceTo(cell));
             }
+
+            LongEventHandler.ExecuteWhenFinished(delegate
+            {
+                StartSustainer();
+            });
         }
 
         public override void PostDeSpawn(Map map)
@@ -138,6 +146,8 @@ namespace VCHE
                         }
                     }
                 }
+
+                sustainer?.Maintain();
             }
         }
 
@@ -159,7 +169,7 @@ namespace VCHE
                 var net = resource.PipeNet;
                 if (net.connectors.Count > 1)
                 {
-                    noCapacity = net.AvailableCapacity == 0;
+                    noCapacity = net.AvailableCapacity <= 0;
 
                     if (!noCapacity)
                     {
@@ -167,6 +177,11 @@ namespace VCHE
                         net.DistributeAmongStorage(1);
 
                         if (cycleOver) cycleOver = false;
+                        StartSustainer();
+                    }
+                    else
+                    {
+                        EndSustainer();
                     }
                     return;
                 }
@@ -175,6 +190,7 @@ namespace VCHE
             // Deplete resource by one
             if (nextResource)
             {
+                StartSustainer();
                 parent.Map.deepResourceGrid.SetAt(cell, resDef, count - 1);
                 // Spawn items
                 for (int i = 0; i < adjCells.Count; i++)
@@ -255,6 +271,24 @@ namespace VCHE
         private void DrawMat(Material mat, Vector3 drawPos)
         {
             Graphics.DrawMesh(MeshPool.plane10, Matrix4x4.TRS(drawPos, parent.Rotation.AsQuat, new Vector3(3, 1, 3)), mat, 0);
+        }
+
+        public void StartSustainer()
+        {
+            if (!Props.ambientSound.NullOrUndefined() && sustainer == null)
+            {
+                SoundInfo info = SoundInfo.InMap(parent);
+                sustainer = Props.ambientSound.TrySpawnSustainer(info);
+            }
+        }
+
+        public void EndSustainer()
+        {
+            if (sustainer != null)
+            {
+                sustainer.End();
+                sustainer = null;
+            }
         }
     }
 }

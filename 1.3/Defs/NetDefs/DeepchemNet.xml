@@ -198,6 +198,7 @@
           <net>VCHE_ChemfuelNet</net>
           <netCount>3</netCount>
         </result>
+        <soundAmbient>VCHE_RefineryAmbient</soundAmbient>
         <notWorkingKey>VCHE_CantRefine</notWorkingKey>
       </li>
       <li Class="PipeSystem.CompProperties_Resource">
@@ -286,6 +287,7 @@
       </li>
       <li Class="VCHE.CompProperties_Pumpjack">
         <ticksPerPortion>60</ticksPerPortion>
+        <ambientSound>VCHE_PumpjackAmbient</ambientSound>
       </li>
     </comps>
   </ThingDef>
