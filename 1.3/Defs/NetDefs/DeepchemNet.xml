@@ -284,6 +284,7 @@
         <storageCapacity>5</storageCapacity>
         <drawStorageBar>false</drawStorageBar>
         <addStorageInfo>false</addStorageInfo>
+        <addTransferGizmo>false</addTransferGizmo>
       </li>
       <li Class="VCHE.CompProperties_Pumpjack">
         <ticksPerPortion>60</ticksPerPortion>
