@@ -155,7 +155,10 @@ namespace VCHE
         {
             // No power -> Return
             if (powerComp != null && !powerComp.PowerOn)
+            {
+                EndSustainer();
                 return;
+            }
             // Get resource
             bool nextResource = GetNextResource(out ThingDef resDef, out int count, out IntVec3 cell);
             // Resource isn't deepchem -> Return
