@@ -6,6 +6,7 @@
       <name>Deepchem</name>
       <unit>l</unit>
       <color>(0.72, 0.29, 0.29)</color>
+      <onlyShowStored>True</onlyShowStored>
       <offTexPath>UI/Gizmos/OutOfDeepchem</offTexPath>
     </resource>
     <pipeDefs>

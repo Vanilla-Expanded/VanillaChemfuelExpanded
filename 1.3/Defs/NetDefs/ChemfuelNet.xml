@@ -6,6 +6,7 @@
       <name>Chemfuel</name>
       <unit>l</unit>
       <color>(0.68, 0.43, 0.19)</color>
+      <onlyShowStored>True</onlyShowStored>
       <offTexPath>Things/Item/Resource/Chemfuel</offTexPath>
     </resource>
     <pipeDefs>
