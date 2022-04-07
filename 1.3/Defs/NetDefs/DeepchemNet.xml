@@ -189,15 +189,18 @@
     <comps>
       <li Class="PipeSystem.CompProperties_ResourceProcessor">
         <pipeNet>VCHE_DeepchemNet</pipeNet>
-        <bufferSize>1</bufferSize>
         <showBufferInfo>false</showBufferInfo>
-        <eachTicks>300</eachTicks>
-        <result>
-          <thing>Chemfuel</thing>
-          <thingCount>3</thingCount>
-          <net>VCHE_ChemfuelNet</net>
-          <netCount>3</netCount>
-        </result>
+        <results>
+          <li>
+            <countNeeded>1</countNeeded>
+            <eachTicks>300</eachTicks>
+
+            <thing>Chemfuel</thing>
+            <thingCount>3</thingCount>
+            <net>VCHE_ChemfuelNet</net>
+            <netCount>3</netCount>
+          </li>
+        </results>
         <soundAmbient>VCHE_RefineryAmbient</soundAmbient>
         <notWorkingKey>VCHE_CantRefine</notWorkingKey>
       </li>
@@ -274,7 +277,7 @@
     </statBases>
     <tickerType>Normal</tickerType>
     <comps>
-      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Flickable" />
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>300</basePowerConsumption>

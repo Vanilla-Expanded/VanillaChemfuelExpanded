@@ -52,13 +52,13 @@ namespace VCHE
             adjCells = GenAdj.CellsAdjacent8Way(parent).ToList();
 
             trueCenter = parent.TrueCenter();
-            if (pumpPos == Vector3.zero)
+            if (pumpPos.x != trueCenter.x)
                 pumpPos = trueCenter + new Vector3(0f, 0.75f, 0f);
 
             bottomPos = trueCenter + new Vector3(0f, 1f, 0f);
             pumpPosMax = trueCenter + new Vector3(0f, 0f, 1.1f);
 
-            if (lumpCells == null)
+            if (lumpCells.NullOrEmpty())
             {
                 lumpCells = new List<IntVec3>();
                 var treated = new HashSet<IntVec3>();
@@ -115,7 +115,7 @@ namespace VCHE
         public override void CompTick()
         {
             base.CompTick();
-            if (parent.Spawned)
+            if (parent.Spawned && lumpCells.Count > 0)
             {
                 var ticksGame = Find.TickManager.TicksGame;
                 if (nextProduceTick == -1)
@@ -149,6 +149,33 @@ namespace VCHE
 
                 sustainer?.Maintain();
             }
+            else
+            {
+                EndSustainer();
+            }
+        }
+
+        public override string CompInspectStringExtra()
+        {
+            if (parent.Spawned)
+            {
+                if (noCapacity)
+                {
+                    return "VCHE_CantPump".Translate();
+                }
+                if (lumpCells.Count == 0)
+                {
+                    return "DeepDrillNoResources".Translate();
+                }
+            }
+            return null;
+        }
+
+        public override void PostDraw()
+        {
+            base.PostDraw();
+            DrawMat(PumpjackPump, pumpPos);
+            DrawMat(PumpjackBottom, bottomPos);
         }
 
         private void TryProducePortion()
@@ -227,48 +254,33 @@ namespace VCHE
 
         private bool GetNextResource(out ThingDef resDef, out int countPresent, out IntVec3 cell)
         {
-            var c = lumpCells[0];
             var map = parent.Map;
+            lumpCells.RemoveAll(c => map.deepResourceGrid.ThingDefAt(c) == null);
 
-            if (map.deepResourceGrid.ThingDefAt(c) is ThingDef r)
+            if (lumpCells.Count > 0)
             {
-                resDef = r;
-                countPresent = map.deepResourceGrid.CountAt(c);
-                cell = c;
-                return true;
-            }
-            else
-            {
-                resDef = null;
-                countPresent = 0;
-                cell = c;
-                lumpCells.RemoveAt(0);
-                return false;
-            }
-        }
+                var c = lumpCells[0];
 
-        public override string CompInspectStringExtra()
-        {
-            if (parent.Spawned)
-            {
-                if (noCapacity)
+                if (map.deepResourceGrid.ThingDefAt(c) is ThingDef r)
                 {
-                    return "VCHE_CantPump".Translate();
+                    resDef = r;
+                    countPresent = map.deepResourceGrid.CountAt(c);
+                    cell = c;
+                    return true;
                 }
-                GetNextResource(out var resDef, out var _, out var _);
-                if (resDef == null || resDef.defName != "VCHE_Deepchem")
+                else
                 {
-                    return "DeepDrillNoResources".Translate();
+                    resDef = null;
+                    countPresent = 0;
+                    cell = c;
+                    lumpCells.RemoveAt(0);
+                    return false;
                 }
             }
-            return null;
-        }
-
-        public override void PostDraw()
-        {
-            base.PostDraw();
-            DrawMat(PumpjackPump, pumpPos);
-            DrawMat(PumpjackBottom, bottomPos);
+            resDef = null;
+            countPresent = 0;
+            cell = IntVec3.Invalid;
+            return false;
         }
 
         private void DrawMat(Material mat, Vector3 drawPos)
