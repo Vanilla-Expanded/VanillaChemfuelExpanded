@@ -331,8 +331,10 @@
 			<allowFlip>false</allowFlip>
 		</graphicData>
     <rotatable>false</rotatable>
-    <altitudeLayer>Building</altitudeLayer>
-    <passability>PassThroughOnly</passability>
+    <altitudeLayer>BuildingOnTop</altitudeLayer>
+    <!-- <altitudeLayer>Building</altitudeLayer> -->
+    <passability>Standable</passability>
+    <!-- <passability>PassThroughOnly</passability> -->
     <fillPercent>0.5</fillPercent>
     <castEdgeShadows>true</castEdgeShadows>
     <pathCost>50</pathCost>
@@ -375,7 +377,6 @@
     <staticSunShadowHeight>0.5</staticSunShadowHeight>
     <surfaceType>Item</surfaceType>
     <canOverlapZones>false</canOverlapZones>
-    <tickerType>Rare</tickerType>
     <comps>
       <li Class="PipeSystem.CompProperties_ConvertThingToResource">
         <pipeNet>VCHE_ChemfuelNet</pipeNet>
