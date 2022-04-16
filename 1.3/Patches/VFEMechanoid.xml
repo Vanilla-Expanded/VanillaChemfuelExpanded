@@ -7,7 +7,7 @@
     <match Class="PatchOperationSequence">
       <operations>
         <li Class="PatchOperationAdd">
-          <xpath>/Defs/ThingDef[defName="VFEM_MunitionsAndArmamentFactory_ArtilleryFoundry" or defName="VFEM_MasonryAndMetallicsFactory_PlasteelForge"]/comps</xpath>
+          <xpath>/Defs/ThingDef[defName="VFEM_MunitionsAndArmamentFactory_ArtilleryFoundry" or defName="VFEM_MasonryAndMetallicsFactory_PlasteelForge" or defName="VFEM_VersatileAssembler"]/comps</xpath>
           <value>
             <li Class="PipeSystem.CompProperties_RefillWithPipes">
               <pipeNet>VCHE_ChemfuelNet</pipeNet>
