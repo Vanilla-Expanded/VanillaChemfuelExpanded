@@ -101,8 +101,8 @@
 
   <ThingDef ParentName="BuildingBase">
     <defName>VCHE_UndergroundChemfuelPipe</defName>
-    <label>underground chemfuel pipe</label>
-    <description>Underground steel pipes designed to transport usable chemfuel from deepchem refineries to chemfuel tanks for storage or to chemfuel-consuming structures for automatic refilling.</description>
+    <label>subterranean chemfuel pipe</label>
+    <description>Subterranean steel pipes designed to transport usable chemfuel from deepchem refineries to chemfuel tanks for storage or to chemfuel-consuming structures for automatic refilling.</description>
     <thingClass>PipeSystem.Building_Pipe</thingClass>
     <category>Building</category>
     <tickerType>Rare</tickerType>
@@ -132,20 +132,20 @@
     <passability>Standable</passability>
     <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
     <statBases>
-      <MaxHitPoints>70</MaxHitPoints>
-      <WorkToBuild>35</WorkToBuild>
-      <Flammability>1.0</Flammability>
+      <MaxHitPoints>400</MaxHitPoints>
+      <WorkToBuild>120</WorkToBuild>
+      <Flammability>0</Flammability>
     </statBases>
     <placingDraggableDimensions>1</placingDraggableDimensions>
     <costList>
-      <Steel>3</Steel>
+      <Steel>4</Steel>
     </costList>
     <comps>
       <li Class="PipeSystem.CompProperties_Resource">
         <pipeNet>VCHE_ChemfuelNet</pipeNet>
       </li>
       <li Class="PipeSystem.CompProperties_SpillWhenDamaged">
-        <spillEachTicks>600</spillEachTicks>
+        <spillEachTicks>1200</spillEachTicks>
         <startAtHitPointsPercent>0.333</startAtHitPointsPercent>
         <amountToDraw>1</amountToDraw>
         <filthMaxSpawnRadius>1</filthMaxSpawnRadius>

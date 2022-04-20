@@ -86,8 +86,8 @@
 
   <ThingDef ParentName="BuildingBase">
     <defName>VCHE_UndergroundDeepchemPipe</defName>
-    <label>underground deepchem pipe</label>
-    <description>Underground heavy steel pipes for transporting the sludge known as deepchem from pumpjacks to refineries or deepchem tanks for storage.</description>
+    <label>subterranean deepchem pipe</label>
+    <description>Subterranean heavy steel pipes for transporting the sludge known as deepchem from pumpjacks to refineries or deepchem tanks for storage.</description>
     <thingClass>PipeSystem.Building_Pipe</thingClass>
     <category>Building</category>
     <tickerType>Rare</tickerType>
@@ -117,13 +117,13 @@
     <passability>Standable</passability>
     <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
     <statBases>
-      <MaxHitPoints>80</MaxHitPoints>
-      <WorkToBuild>40</WorkToBuild>
-      <Flammability>1.0</Flammability>
+      <MaxHitPoints>500</MaxHitPoints>
+      <WorkToBuild>120</WorkToBuild>
+      <Flammability>0</Flammability>
     </statBases>
     <placingDraggableDimensions>1</placingDraggableDimensions>
     <costList>
-      <Steel>4</Steel>
+      <Steel>6</Steel>
     </costList>
     <comps>
       <li Class="PipeSystem.CompProperties_Resource">
