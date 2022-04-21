@@ -1,5 +1,6 @@
 ﻿using PipeSystem;
 using RimWorld;
+using System.Collections.Generic;
 using System.Text;
 using VanillaPowerExpanded;
 using Verse;
@@ -36,7 +37,7 @@ namespace VCHE
         public override void PostExposeData()
         {
             base.PostExposeData();
-            Scribe_Values.Look<int>(ref ticksCounter, "ticksCounter", 0, false);
+            Scribe_Values.Look(ref ticksCounter, "ticksCounter", 0, false);
         }
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
@@ -48,11 +49,10 @@ namespace VCHE
 
         public override void CompTick()
         {
-            base.CompTick();
-            ticksCounter++;
-            if (ticksCounter > ticksInADay * Props.fuelInterval)
+            if (chemfuelPond != null && chemfuelPond.fuelLeft > 0)
             {
-                if (chemfuelPond != null && chemfuelPond.fuelLeft > 0)
+                ticksCounter++;
+                if (ticksCounter > ticksInADay * Props.fuelInterval)
                 {
                     if (compResource != null && compResource.PipeNet.connectors.Count > 1 && compResource.PipeNet.AvailableCapacity >= Props.fuelProduced)
                     {
@@ -60,12 +60,12 @@ namespace VCHE
                         compResource.PipeNet.DistributeAmongStorage(Props.fuelProduced);
                         ticksCounter = 0;
                     }
-                    else if (compResource == null)
+                    else
                     {
                         chemfuelPond.fuelLeft -= Props.fuelProduced;
                         Thing thing = ThingMaker.MakeThing(ThingDefOf.Chemfuel, null);
                         thing.stackCount = Props.fuelProduced;
-                        GenPlace.TryPlaceThing(thing, parent.Position, parent.Map, ThingPlaceMode.Near, null, null, default(Rot4));
+                        GenPlace.TryPlaceThing(thing, parent.Position, parent.Map, ThingPlaceMode.Near, null, null, default);
                         ticksCounter = 0;
                     }
                 }
@@ -95,6 +95,25 @@ namespace VCHE
             {
                 stringBuilder.Append("VPE_PondNoFuel".Translate());
                 return stringBuilder.ToString();
+            }
+        }
+
+        public override IEnumerable<Gizmo> CompGetGizmosExtra()
+        {
+            foreach (Gizmo gizmo in base.CompGetGizmosExtra())
+                yield return gizmo;
+
+            if (Prefs.DevMode)
+            {
+                yield return new Command_Action
+                {
+                    action = delegate
+                    {
+                        ticksCounter = (int)((ticksInADay * Props.fuelInterval) - 100);
+                    },
+                    defaultLabel = "DEBUG: Produce next tick",
+                    defaultDesc = "Produce next tick"
+                }; ;
             }
         }
     }
