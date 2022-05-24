@@ -6,31 +6,4 @@
       <li>VCHE_Make_ChemfuelFromDeepchem</li>
     </value>
   </Operation>
-
-  <Operation Class="PatchOperationFindMod">
-    <mods>
-      <li>Vanilla Furniture Expanded - Power</li>
-    </mods>
-    <match Class="PatchOperationSequence">
-      <operations>
-        <li Class="PatchOperationReplace">
-          <xpath>/Defs/ThingDef[defName="VPE_ChemfuelPump"]/comps/li[@Class="VanillaPowerExpanded.CompProperties_ChemfuelPump"]</xpath>
-          <value>
-            <li Class="VCHE.CompProperties_ChemfuelPump">
-              <fuelProduced>75</fuelProduced>
-              <fuelInterval>5</fuelInterval>
-            </li>
-          </value>
-        </li>
-        <li Class="PatchOperationAdd">
-          <xpath>/Defs/ThingDef[defName="VPE_ChemfuelPump"]/comps</xpath>
-          <value>
-            <li Class="PipeSystem.CompProperties_Resource">
-              <pipeNet>VCHE_ChemfuelNet</pipeNet>
-            </li>
-          </value>
-        </li>
-      </operations>
-    </match>
-  </Operation>
 </Patch>

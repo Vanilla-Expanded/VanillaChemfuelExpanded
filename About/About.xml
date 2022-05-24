@@ -29,5 +29,6 @@ This mod is not trying to be better than other available chemfuel-related mods. 
     <li>Ludeon.RimWorld.Royalty</li>
     <li>brrainz.harmony</li>
     <li>OskarPotocki.VanillaFactionsExpanded.Core</li>
+    <li>VanillaExpanded.VFEPower</li>
   </loadAfter>
 </ModMetaData>

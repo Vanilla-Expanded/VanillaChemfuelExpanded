@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/ThingDef[defName="VPE_ChemfuelPump"]/comps/li[@Class="VanillaPowerExpanded.CompProperties_ChemfuelPump"]</xpath>
+    <value>
+      <li Class="VCHE.CompProperties_ChemfuelPump">
+        <fuelProduced>75</fuelProduced>
+        <fuelInterval>5</fuelInterval>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[defName="VPE_ChemfuelPump"]/comps</xpath>
+    <value>
+      <li Class="PipeSystem.CompProperties_Resource">
+        <pipeNet>VCHE_ChemfuelNet</pipeNet>
+      </li>
+    </value>
+  </Operation>
+</Patch>
