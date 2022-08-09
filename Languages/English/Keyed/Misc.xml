@@ -10,4 +10,10 @@
   <VCHE_CantPump>Can’t pump: Tanks are full</VCHE_CantPump>
 
   <VCHE_CantPlaceHere>Deepchem pumpjack can only be placed on the deepchem deposit. Use ground-penetrating scanner to find the deposits.</VCHE_CantPlaceHere>
+
+  <VCHE_ChemValve>Switches chemfuel flow on/off.</VCHE_ChemValve>
+  <VCHE_ChemValveDesc>Switches chemfuel flow on/off. A pawn will come open/close the valve.</VCHE_ChemValveDesc>
+
+  <VCHE_DeepChemValve>Switches deepchem flow on/off.</VCHE_DeepChemValve>
+  <VCHE_DeepChemValveDesc>Switches deepchem flow on/off. A pawn will come open/close the valve.</VCHE_DeepChemValveDesc>
 </LanguageData>

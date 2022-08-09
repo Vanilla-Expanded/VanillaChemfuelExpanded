@@ -147,6 +147,60 @@
   </ThingDef>
 
   <ThingDef ParentName="BuildingBase">
+    <defName>VCHE_DeepchemValve</defName>
+    <label>deepchem valve</label>
+    <description>Switches deepchem flow on/off.</description>
+    <thingClass>PipeSystem.Building_PipeValve</thingClass>
+    <category>Building</category>
+    <graphicData>
+      <texPath>Things/Building/Linked/DeepchemValve/DeepchemValve</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Transparent</shaderType>
+      <damageData>
+        <rect>(0.2,0.2,0.6,0.6)</rect>
+      </damageData>
+    </graphicData>
+    <building>
+      <ai_chillDestination>false</ai_chillDestination>
+      <allowWireConnection>false</allowWireConnection>
+    </building>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Standable</passability>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <statBases>
+      <MaxHitPoints>120</MaxHitPoints>
+      <WorkToBuild>200</WorkToBuild>
+      <Flammability>1.0</Flammability>
+      <Beauty>-2</Beauty>
+    </statBases>
+    <placingDraggableDimensions>0</placingDraggableDimensions>
+    <costList>
+      <Steel>15</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="PipeSystem.CompProperties_PipeValve">
+        <pipeNet>VCHE_DeepchemNet</pipeNet>
+        <alwaysLinkToPipes>true</alwaysLinkToPipes>
+      </li>
+      <li Class="CompProperties_Flickable">
+        <commandTexture>Things/Item/Resource/Deepchem</commandTexture>
+        <commandLabelKey>VCHE_DeepChemValve</commandLabelKey>
+        <commandDescKey>VCHE_DeepChemValveDesc</commandDescKey>
+      </li>
+    </comps>
+    <rotatable>false</rotatable>
+    <selectable>true</selectable>
+    <neverMultiSelect>false</neverMultiSelect>
+    <tickerType>Normal</tickerType>
+    <designationCategory>VCHE_PipeNetworks</designationCategory>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites>
+      <li>BiofuelRefining</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
     <defName>PS_DeepchemTank</defName>
     <label>deepchem tank</label>
     <description>A heavy industrial sludge storage tank meant for storing deepchem delivered via deepchem pipe network. Tanks can be designated to be siphoned as needed.  If damaged even lightly the escaping fumes will very swiftly create a gaseous fireball, the size of the resulting explosion will depend on the amount stored within.</description>

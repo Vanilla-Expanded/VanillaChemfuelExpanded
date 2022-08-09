@@ -171,6 +171,60 @@
   </ThingDef>
 
   <ThingDef ParentName="BuildingBase">
+    <defName>VCHE_ChemfuelValve</defName>
+    <label>chemfuel valve</label>
+    <description>Switches chemfuel flow on/off.</description>
+    <thingClass>PipeSystem.Building_PipeValve</thingClass>
+    <category>Building</category>
+    <graphicData>
+      <texPath>Things/Building/Linked/ChemfuelValve/ChemfuelValve</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Transparent</shaderType>
+      <damageData>
+        <rect>(0.2,0.2,0.6,0.6)</rect>
+      </damageData>
+    </graphicData>
+    <building>
+      <ai_chillDestination>false</ai_chillDestination>
+      <allowWireConnection>false</allowWireConnection>
+    </building>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Standable</passability>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <statBases>
+      <MaxHitPoints>120</MaxHitPoints>
+      <WorkToBuild>200</WorkToBuild>
+      <Flammability>1.0</Flammability>
+      <Beauty>-2</Beauty>
+    </statBases>
+    <placingDraggableDimensions>0</placingDraggableDimensions>
+    <costList>
+      <Steel>15</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="PipeSystem.CompProperties_PipeValve">
+        <pipeNet>VCHE_ChemfuelNet</pipeNet>
+        <alwaysLinkToPipes>true</alwaysLinkToPipes>
+      </li>
+      <li Class="CompProperties_Flickable">
+        <commandTexture>Things/Item/Resource/Chemfuel</commandTexture>
+        <commandLabelKey>VCHE_ChemValve</commandLabelKey>
+        <commandDescKey>VCHE_ChemValveDesc</commandDescKey>
+      </li>
+    </comps>
+    <rotatable>false</rotatable>
+    <selectable>true</selectable>
+    <neverMultiSelect>false</neverMultiSelect>
+    <tickerType>Normal</tickerType>
+    <designationCategory>VCHE_PipeNetworks</designationCategory>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites>
+      <li>BiofuelRefining</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
     <defName>PS_ChemfuelTank</defName>
     <label>chemfuel tank</label>
     <description>An industrial liquid storage tank meant for storing chemfuel delivered via chemfuel pipe network. Tanks can be designated to be siphoned for usable chemfuel as needed.  If damaged even lightly the escaping fumes will very swiftly create a gaseous fireball, the size of the resulting explosion will depend on the amount stored within.</description>
@@ -246,17 +300,17 @@
     <description>A hopper-like storage basin meant to hold dispensed chemfuel from tanks periodically for use later.</description>
     <thingClass>Building_Storage</thingClass>
     <graphicData>
-			<texPath>Things/Building/Production/ChemfuelTap</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<damageData>
-				<cornerTL>Damage/Corner</cornerTL>
-				<cornerTR>Damage/Corner</cornerTR>
-				<cornerBL>Damage/Corner</cornerBL>
-				<cornerBR>Damage/Corner</cornerBR>
-			</damageData>
-			<drawRotated>false</drawRotated>
-			<allowFlip>false</allowFlip>
-		</graphicData>
+      <texPath>Things/Building/Production/ChemfuelTap</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+      <drawRotated>false</drawRotated>
+      <allowFlip>false</allowFlip>
+    </graphicData>
     <rotatable>false</rotatable>
     <altitudeLayer>Building</altitudeLayer>
     <passability>PassThroughOnly</passability>
@@ -264,7 +318,7 @@
     <castEdgeShadows>true</castEdgeShadows>
     <pathCost>50</pathCost>
     <statBases>
-      <MaxHitPoints>100</MaxHitPoints> 
+      <MaxHitPoints>100</MaxHitPoints>
       <Mass>8</Mass>
       <WorkToBuild>600</WorkToBuild>
       <Flammability>1.0</Flammability>
@@ -319,17 +373,17 @@
     <description>A hopper-like storage basin meant to input chemfuel into the network, filling up connected tanks.</description>
     <thingClass>Building_Storage</thingClass>
     <graphicData>
-			<texPath>Things/Building/Production/ChemfuelDrain</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<damageData>
-				<cornerTL>Damage/Corner</cornerTL>
-				<cornerTR>Damage/Corner</cornerTR>
-				<cornerBL>Damage/Corner</cornerBL>
-				<cornerBR>Damage/Corner</cornerBR>
-			</damageData>
-			<drawRotated>false</drawRotated>
-			<allowFlip>false</allowFlip>
-		</graphicData>
+      <texPath>Things/Building/Production/ChemfuelDrain</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+      <drawRotated>false</drawRotated>
+      <allowFlip>false</allowFlip>
+    </graphicData>
     <rotatable>false</rotatable>
     <altitudeLayer>BuildingOnTop</altitudeLayer>
     <!-- <altitudeLayer>Building</altitudeLayer> -->
@@ -339,7 +393,7 @@
     <castEdgeShadows>true</castEdgeShadows>
     <pathCost>50</pathCost>
     <statBases>
-      <MaxHitPoints>100</MaxHitPoints> 
+      <MaxHitPoints>100</MaxHitPoints>
       <Mass>8</Mass>
       <WorkToBuild>600</WorkToBuild>
       <Flammability>1.0</Flammability>
