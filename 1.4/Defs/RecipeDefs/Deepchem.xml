@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+  <RecipeDef>
+    <defName>VCHE_Make_ChemfuelFromDeepchem</defName>
+    <label>make chemfuel from deepchem</label>
+    <description>Make a batch of chemfuel by refining deepchem.</description>
+    <jobString>Refining chemfuel from deepchem.</jobString>
+    <effectWorking>Cremate</effectWorking>
+    <soundWorking>Recipe_Cremate</soundWorking>
+    <workAmount>2000</workAmount>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>VCHE_Deepchem</li>
+          </thingDefs>
+        </filter>
+        <count>35</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>VCHE_Deepchem</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <Chemfuel>70</Chemfuel>
+    </products>
+  </RecipeDef>
+</Defs>
