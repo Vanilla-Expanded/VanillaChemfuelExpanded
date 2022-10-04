@@ -61,7 +61,6 @@
   <ItemGroup>
     <Compile Include="CompPumpjack.cs" />
     <Compile Include="CompRefinery.cs" />
-    <Compile Include="HarmonyInit.cs" />
     <Compile Include="PlaceWorker_Pumpjack.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

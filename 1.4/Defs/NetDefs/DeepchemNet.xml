@@ -412,6 +412,11 @@
         <ambientSound>VCHE_PumpjackAmbient</ambientSound>
       </li>
     </comps>
+    <modExtensions>
+      <li Class="VFECore.ThingDefExtension">
+        <deepResourcesOnGUI>true</deepResourcesOnGUI>
+      </li>
+    </modExtensions>
   </ThingDef>
 
   <ThingDef ParentName="FurnitureBase">
