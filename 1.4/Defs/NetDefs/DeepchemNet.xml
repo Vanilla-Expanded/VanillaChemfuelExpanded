@@ -380,7 +380,7 @@
       <ComponentIndustrial>4</ComponentIndustrial>
     </costList>
     <placeWorkers>
-      <li>VCHE.PlaceWorker_Pumpjack</li>
+      <li>PipeSystem.PlaceWorker_DeepExtractor</li>
     </placeWorkers>
     <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
     <researchPrerequisites>
@@ -400,17 +400,14 @@
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>300</basePowerConsumption>
       </li>
-      <li Class="PipeSystem.CompProperties_ResourceStorage">
+      <li Class="PipeSystem.CompProperties_DeepExtractor">
         <pipeNet>VCHE_DeepchemNet</pipeNet>
-        <storageCapacity>5</storageCapacity>
-        <drawStorageBar>false</drawStorageBar>
-        <addStorageInfo>false</addStorageInfo>
-        <addTransferGizmo>false</addTransferGizmo>
-      </li>
-      <li Class="VCHE.CompProperties_Pumpjack">
+        <deepThing>VCHE_Deepchem</deepThing>
         <ticksPerPortion>60</ticksPerPortion>
-        <ambientSound>VCHE_PumpjackAmbient</ambientSound>
+        <useDeepCountPerPortion>false</useDeepCountPerPortion>
+        <soundAmbient>VCHE_PumpjackAmbient</soundAmbient>
       </li>
+      <li Class="VCHE.CompProperties_PumpjackAnimation" />
     </comps>
     <modExtensions>
       <li Class="VFECore.ThingDefExtension">
