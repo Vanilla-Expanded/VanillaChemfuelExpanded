@@ -236,7 +236,7 @@
     <comps>
       <li Class="PipeSystem.CompProperties_ResourceStorage">
         <pipeNet>VCHE_DeepchemNet</pipeNet>
-        <storageCapacity>1500</storageCapacity>
+        <storageCapacity>4500</storageCapacity>
         <barSize>(1.3, 0.25)</barSize>
         <margin>0.1</margin>
         <centerOffset>(0, 0, 0.45)</centerOffset>
