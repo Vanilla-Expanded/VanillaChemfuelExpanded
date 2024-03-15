@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[defName="BiofuelRefinery"]/recipes</xpath>
+    <value>
+      <li>VCHE_Make_ChemfuelFromDeepchem</li>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/ThingDef[defName="InfiniteChemreactor"]/comps/li[@Class="CompProperties_Spawner"]</xpath>
+    <value>
+      <li Class="PipeSystem.CompProperties_SpawnerOrNet">
+        <pipeNet>VCHE_ChemfuelNet</pipeNet>
+        <!-- Vanilla part -->
+        <requiresPower>true</requiresPower>
+        <thingToSpawn>Chemfuel</thingToSpawn>
+        <spawnCount>75</spawnCount>
+        <spawnIntervalRange>
+          <min>600000</min>
+          <max>600000</max>
+        </spawnIntervalRange>
+        <writeTimeLeftToSpawn>true</writeTimeLeftToSpawn>
+        <showMessageIfOwned>true</showMessageIfOwned>
+      </li>
+    </value>
+  </Operation>
+</Patch>
