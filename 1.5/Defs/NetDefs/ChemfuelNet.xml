@@ -117,7 +117,7 @@
         <rect>(0,0.35,1,0.3)</rect>
       </damageData>
     </graphicData>
-    <uiIconPath>Things/Building/Linked/ChemfuelPipes_MenuIcon</uiIconPath>
+    <uiIconPath>Things/Building/Linked/BuriedChemfuelPipes_MenuIcon</uiIconPath>
     <uiIconScale>0.7</uiIconScale>
     <building>
       <ai_chillDestination>false</ai_chillDestination>
