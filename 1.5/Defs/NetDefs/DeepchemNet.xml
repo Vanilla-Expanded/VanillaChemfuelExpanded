@@ -86,8 +86,8 @@
 
   <ThingDef ParentName="BuildingBase">
     <defName>VCHE_UndergroundDeepchemPipe</defName>
-    <label>subterranean deepchem pipe</label>
-    <description>Subterranean heavy steel pipes for transporting the sludge known as deepchem from pumpjacks to refineries or deepchem tanks for storage.</description>
+    <label>hidden deepchem pipe</label>
+    <description>Hidden heavy steel pipes for transporting the sludge known as deepchem from pumpjacks to refineries or deepchem tanks for storage.</description>
     <thingClass>PipeSystem.Building_Pipe</thingClass>
     <category>Building</category>
     <tickerType>Rare</tickerType>
@@ -111,19 +111,23 @@
       <blueprintGraphicData>
         <texPath>Things/Building/Linked/DeepchemPipes_Blueprint_Atlas</texPath>
       </blueprintGraphicData>
+      <ai_neverTrashThis>true</ai_neverTrashThis>
+      <isTargetable>false</isTargetable>
+      <expandHomeArea>false</expandHomeArea>
+      <canBeDamagedByAttacks>false</canBeDamagedByAttacks>
     </building>
     <drawerType>MapMeshOnly</drawerType>
     <altitudeLayer>Conduits</altitudeLayer>
     <passability>Standable</passability>
     <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
     <statBases>
-      <MaxHitPoints>500</MaxHitPoints>
-      <WorkToBuild>120</WorkToBuild>
+      <MaxHitPoints>60</MaxHitPoints>
+      <WorkToBuild>320</WorkToBuild>
       <Flammability>0</Flammability>
     </statBases>
     <placingDraggableDimensions>1</placingDraggableDimensions>
     <costList>
-      <Steel>6</Steel>
+      <Steel>8</Steel>
     </costList>
     <comps>
       <li Class="PipeSystem.CompProperties_Resource">

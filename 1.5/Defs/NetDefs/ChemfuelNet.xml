@@ -101,8 +101,8 @@
 
   <ThingDef ParentName="BuildingBase">
     <defName>VCHE_UndergroundChemfuelPipe</defName>
-    <label>subterranean chemfuel pipe</label>
-    <description>Subterranean steel pipes designed to transport usable chemfuel from deepchem refineries to chemfuel tanks for storage or to chemfuel-consuming structures for automatic refilling.</description>
+    <label>hidden chemfuel pipe</label>
+    <description>Hidden steel pipes designed to transport usable chemfuel from deepchem refineries to chemfuel tanks for storage or to chemfuel-consuming structures for automatic refilling.</description>
     <thingClass>PipeSystem.Building_Pipe</thingClass>
     <category>Building</category>
     <tickerType>Rare</tickerType>
@@ -126,14 +126,18 @@
       <blueprintGraphicData>
         <texPath>Things/Building/Linked/ChemfuelPipes_Blueprint_Atlas</texPath>
       </blueprintGraphicData>
+      <ai_neverTrashThis>true</ai_neverTrashThis>
+      <isTargetable>false</isTargetable>
+      <expandHomeArea>false</expandHomeArea>
+      <canBeDamagedByAttacks>false</canBeDamagedByAttacks>
     </building>
     <drawerType>MapMeshOnly</drawerType>
     <altitudeLayer>Conduits</altitudeLayer>
     <passability>Standable</passability>
     <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
     <statBases>
-      <MaxHitPoints>400</MaxHitPoints>
-      <WorkToBuild>120</WorkToBuild>
+      <MaxHitPoints>48</MaxHitPoints>
+      <WorkToBuild>280</WorkToBuild>
       <Flammability>0</Flammability>
     </statBases>
     <placingDraggableDimensions>1</placingDraggableDimensions>
