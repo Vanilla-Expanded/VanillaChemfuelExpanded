@@ -42,7 +42,7 @@
       </li>
     </comps>
     <modExtensions>
-      <li Class="VFECore.ThingDefExtension">
+      <li Class="VEF.Things.ThingDefExtension">
         <deepColor>(0.72, 0.29, 0.29)</deepColor>
       </li>
     </modExtensions>
