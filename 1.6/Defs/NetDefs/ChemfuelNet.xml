@@ -334,6 +334,7 @@
       <Steel>60</Steel>
     </costList>
     <building>
+	 <blueprintClass>Blueprint_Storage</blueprintClass>
       <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
       <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
       <fixedStorageSettings>
@@ -411,6 +412,7 @@
     <building>
       <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
       <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+	   <blueprintClass>Blueprint_Storage</blueprintClass>
       <fixedStorageSettings>
         <filter>
           <disallowNotEverStorable>true</disallowNotEverStorable>
